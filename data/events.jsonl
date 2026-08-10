@@ -1,0 +1,4 @@
+{"event_id":"evt-001","amount":42.5,"latency_ms":180,"type":"order_created"}
+{"event_id":"evt-002","amount":77.0,"latency_ms":2400,"type":"order_created"}
+{"event_id":"evt-003","amount":18500.0,"latency_ms":210,"type":"order_created"}
+{"event_id":"evt-004","amount":12.0,"latency_ms":90,"type":"order_created"}
