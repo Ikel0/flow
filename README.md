@@ -1,6 +1,6 @@
 # Flow
 
-Flow est un moniteur d’événements utilisable localement. Il accepte un événement JSON via HTTP, le valide et expose ses métriques et alertes dans une interface web.
+Flow est un moniteur d’événements utilisable localement. Il accepte un événement JSON via HTTP, applique des règles de surveillance et expose les métriques et alertes dans une interface web.
 
 ## Démarrer l’application
 
@@ -28,6 +28,15 @@ curl http://127.0.0.1:8000/api/alerts
 - alerte de montant au-delà de 10 000.
 
 `src/monitor.py` reste disponible pour traiter le fichier de démonstration en batch.
+
+## Docker et Render
+
+```bash
+docker build -t flow .
+docker run --rm -p 8000:8000 flow
+```
+
+`render.yaml` permet de créer un Blueprint sur Render pour mettre l’application en ligne.
 
 ## Vérifier
 

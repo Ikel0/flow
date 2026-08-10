@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from collections import deque
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -43,8 +44,8 @@ class Handler(SimpleHTTPRequestHandler):
         except (ValueError, json.JSONDecodeError): return self.send_json({"error": "invalid JSON"}, HTTPStatus.BAD_REQUEST)
 
 def main():
-    parser = argparse.ArgumentParser(); parser.add_argument("--port", type=int, default=8000); args = parser.parse_args()
-    with ThreadingHTTPServer(("127.0.0.1", args.port), Handler) as server:
-        print(f"Flow is running at http://127.0.0.1:{args.port}"); server.serve_forever()
+    parser = argparse.ArgumentParser(); parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8000"))); args = parser.parse_args()
+    with ThreadingHTTPServer(("0.0.0.0", args.port), Handler) as server:
+        print(f"Flow is running on port {args.port}"); server.serve_forever()
 
 if __name__ == "__main__": main()

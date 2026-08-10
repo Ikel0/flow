@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: flow-ikel
+    runtime: docker
+    plan: free
+    healthCheckPath: /
