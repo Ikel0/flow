@@ -1,17 +1,36 @@
 # Flow
 
-Un moniteur minimal de flux d’événements. Il valide chaque événement JSON Lines et enregistre les alertes utiles.
+Flow est un moniteur d’événements utilisable localement. Il accepte un événement JSON via HTTP, le valide et expose ses métriques et alertes dans une interface web.
 
-## Ce qui fonctionne
-
-- validation des champs obligatoires ;
-- alertes de latence supérieure à 2 secondes ;
-- alertes sur montant inhabituel ;
-- persistance dans `out/alerts.jsonl`.
+## Démarrer l’application
 
 ```bash
-cd projects/flow
-python3 src/monitor.py
+python3 src/server.py
 ```
 
-Suite : Kafka, fenêtre statistique et notifications opérationnelles.
+Ouvrir `http://127.0.0.1:8000`, puis envoyer un événement depuis l’interface ou l’API.
+
+## API
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/events \
+  -H 'Content-Type: application/json' \
+  -d '{"event_id":"evt-01","amount":42.5,"latency_ms":180,"type":"order_created"}'
+
+curl http://127.0.0.1:8000/api/metrics
+curl http://127.0.0.1:8000/api/alerts
+```
+
+## Règles intégrées
+
+- champs requis : `event_id`, `amount`, `latency_ms`, `type` ;
+- alerte de latence au-delà de 2 000 ms ;
+- alerte de montant au-delà de 10 000.
+
+`src/monitor.py` reste disponible pour traiter le fichier de démonstration en batch.
+
+## Vérifier
+
+```bash
+python3 -m unittest discover -s tests
+```
