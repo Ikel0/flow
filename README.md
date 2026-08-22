@@ -21,6 +21,10 @@ curl http://127.0.0.1:8000/api/metrics
 curl http://127.0.0.1:8000/api/alerts
 ```
 
+## Flux public de démonstration
+
+L’interface peut également écouter, directement depuis le navigateur, le flux public `BTCUSDT@aggTrade` de Binance Spot. L’utilisateur choisit ensuite s’il souhaite injecter un événement observé dans Flow. Cette intégration ne passe aucun ordre et ne constitue pas un conseil financier : elle sert uniquement à travailler un événement réel, sa provenance et sa latence.
+
 ## Règles intégrées
 
 - champs requis : `event_id`, `amount`, `latency_ms`, `type` ;
