@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Flow — dependency-free monitor for a JSON Lines stream."""
+"""Flow, dependency-free monitor for a JSON Lines stream."""
 import argparse
 import json
 from pathlib import Path
@@ -29,7 +29,7 @@ def main():
                 alerted += 1
                 destination.write(json.dumps({"event_id": event.get("event_id"), "reasons": reasons}) + "\n")
                 print(f"ALERT {event.get('event_id')}: {', '.join(reasons)}")
-    print(f"Processed {total} events — {alerted} alerts")
+    print(f"Processed {total} events, {alerted} alerts")
 
 if __name__ == "__main__":
     main()
