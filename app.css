@@ -58,6 +58,7 @@ form button b { color:var(--sun); font-size:18px; margin-left:6px; }
 .alerts article span:last-child, .alerts>p { color:var(--muted); }
 footer { border-top:1px solid var(--line); padding-top:22px; padding-bottom:22px; }
 footer a { color:var(--teal); text-decoration:none; }
+.source-note a { color:var(--teal); text-decoration:none; border-bottom:1px solid currentColor; }
 
 @media (max-width:800px) {
   .metrics { grid-template-columns:repeat(2,1fr); }

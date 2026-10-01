@@ -10,6 +10,12 @@ Flow est un moniteur d’événements utilisable localement. Il accepte un évé
 - métriques opérationnelles : volume, événements signalés, latence moyenne et P95 ;
 - réinitialisation et scénario de démonstration reproductible, sans masquer les événements réels reçus.
 
+## Test en moins d’une minute
+
+Lance l’application, ouvre `http://localhost:8000`, puis clique sur **Charger un scénario d’incident**. Flow crée des événements locaux, applique le contrat, calcule les métriques et montre les alertes dans le journal.
+
+Le bouton **Connecter le flux** ouvre en option le canal public `btcusdt@aggTrade` documenté par Binance Spot. Une transaction peut ensuite être envoyée manuellement à Flow avec sa provenance. Un délai de huit secondes remet l’interface en état testable si le flux externe ne répond pas. Aucun ordre n’est envoyé.
+
 ## Démarrer l’application
 
 ```bash
@@ -33,7 +39,7 @@ Un événement conforme est retourné avec `202`. Rejouer exactement le même `e
 
 ## Flux public de démonstration
 
-L’interface peut également écouter, directement depuis le navigateur, le flux public `BTCUSDT@aggTrade` de Binance Spot. L’utilisateur choisit ensuite s’il souhaite injecter un événement observé dans Flow. Cette intégration ne passe aucun ordre et ne constitue pas un conseil financier : elle sert uniquement à travailler un événement réel, sa provenance et sa latence.
+L’interface peut également écouter, directement depuis le navigateur, le flux public `btcusdt@aggTrade` de Binance Spot via `wss://stream.binance.com:9443`. L’utilisateur choisit ensuite s’il souhaite injecter un événement observé dans Flow. Cette intégration ne passe aucun ordre et ne constitue pas un conseil financier : elle sert uniquement à travailler un événement réel, sa provenance et sa latence.
 
 ## Règles intégrées
 
