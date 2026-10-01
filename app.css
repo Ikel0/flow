@@ -33,6 +33,10 @@ main { max-width:1110px; margin:auto; padding:80px 28px 86px; }
 textarea { display:block; width:100%; height:145px; margin:11px 0; background:#f7faf5; border:1px solid var(--line); color:var(--ink); padding:14px; font:12px/1.6 'DM Mono'; resize:vertical; }
 form button { border:0; background:var(--ink); padding:13px 17px; color:var(--paper); font:700 12px 'Plus Jakarta Sans'; cursor:pointer; }
 form button b { color:var(--sun); font-size:18px; margin-left:6px; }
+.event-status { min-height:20px; margin:14px 0 0; color:var(--muted); font:10px/1.5 'DM Mono'; }
+.event-status[data-tone="accepted"] { color:var(--moss); }
+.event-status[data-tone="watch"] { color:var(--blue); }
+.event-status[data-tone="error"] { color:#b94f3d; }
 .market-feed { display:grid; grid-template-columns:1fr .75fr; gap:0; margin-top:58px; border:1px solid var(--ink); background:#e1ece6; }
 .market-feed>div { padding:30px; }
 .market-feed h2 { margin:0; font:400 32px 'Instrument Serif'; letter-spacing:-.045em; }

@@ -23,6 +23,8 @@ class FlowMonitorTest(unittest.TestCase):
     def test_contract_errors_are_explicit(self):
         self.assertEqual(validate({"event_id": "1"}), ["missing_amount", "missing_latency_ms", "missing_type"])
         self.assertIn("invalid_latency_ms", validate(event(latency_ms=-1)))
+        self.assertIn("invalid_amount", validate(event(amount=float("nan"))))
+        self.assertIn("invalid_latency_ms", validate(event(latency_ms=float("inf"))))
 
     def test_event_id_is_idempotent_and_conflicts_are_visible(self):
         with tempfile.TemporaryDirectory() as folder:

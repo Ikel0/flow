@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -32,9 +33,18 @@ def validate(event: dict[str, Any]) -> list[str]:
         reasons.append("invalid_event_id")
     if not isinstance(event["type"], str) or not event["type"].strip():
         reasons.append("invalid_type")
-    if not isinstance(event["amount"], (int, float)) or isinstance(event["amount"], bool):
+    if (
+        not isinstance(event["amount"], (int, float))
+        or isinstance(event["amount"], bool)
+        or not math.isfinite(float(event["amount"]))
+    ):
         reasons.append("invalid_amount")
-    if not isinstance(event["latency_ms"], (int, float)) or isinstance(event["latency_ms"], bool) or event["latency_ms"] < 0:
+    if (
+        not isinstance(event["latency_ms"], (int, float))
+        or isinstance(event["latency_ms"], bool)
+        or not math.isfinite(float(event["latency_ms"]))
+        or event["latency_ms"] < 0
+    ):
         reasons.append("invalid_latency_ms")
     if any(reason.startswith("invalid_") for reason in reasons):
         return reasons
