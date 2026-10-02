@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root { --ink:#0b1518; --paper:#eaf1ed; --teal:#197887; --blue:#1d5975; --moss:#3f705b; --sun:#b9db8e; --muted:#58706d; --line:rgba(11,21,24,.22); }
 * { box-sizing:border-box; }
@@ -82,3 +82,48 @@ footer a { color:var(--teal); text-decoration:none; }
   footer { display:block; }
   footer a { display:block; margin-top:8px; }
 }
+
+/* Flow possède son propre langage : console nocturne, signaux et grille temporelle. */
+body { background:#07100f; color:#dce9e3; font-family:'Space Grotesk',sans-serif; }
+body::before { background:linear-gradient(rgba(7,16,15,.48),rgba(7,16,15,.96)),repeating-linear-gradient(0deg,transparent 0 31px,rgba(93,255,196,.055) 32px),repeating-linear-gradient(90deg,transparent 0 79px,rgba(93,255,196,.035) 80px); }
+header { background:rgba(7,16,15,.91); border-color:#29403a; }
+.brand { color:#f2fff9; font:600 17px 'Space Grotesk'; letter-spacing:-.03em; }
+.brand sup,.eyebrow { color:#5dffc4; font-family:'IBM Plex Mono'; }
+header div a,footer { color:#89a39a; font-family:'IBM Plex Mono'; }
+.hero { grid-template-columns:1.05fr .62fr; align-items:center; }
+.hero h1 { max-width:700px; font:600 clamp(3.5rem,7vw,6.4rem)/.9 'Space Grotesk'; letter-spacing:-.075em; }
+.hero h1 i { color:#5dffc4; font-family:inherit; font-style:normal; }
+.hero>p { padding-left:24px; border-left:1px solid #5dffc4; color:#9fb5ad; }
+.metrics { border-color:#365249; background:#14211e; }
+.metrics div { background:#0d1917; border-color:#29403a; }
+.metrics small,label { color:#769087; font-family:'IBM Plex Mono'; }
+.metrics b { color:#eefaf5; font:500 clamp(2rem,3.3vw,2.65rem) 'Space Grotesk'; letter-spacing:-.05em; }
+.metrics .alert { background:#16241f; }
+.metrics .alert small { color:#a6b7a1; }
+.metrics .alert b { color:#ffbf5b; }
+.workbench { border-color:#436158; background:#0a1513; }
+.explain { border-color:#29403a; background:#101e1b; }
+.explain h2,.section-head h2,.market-feed h2 { color:#effaf6; font:600 29px 'Space Grotesk'; letter-spacing:-.04em; }
+.explain>p:not(.eyebrow),.market-feed>div>p:not(.eyebrow),.alerts article span:last-child,.alerts>p { color:#8da69d; }
+.rules { color:#5dffc4; font-family:'IBM Plex Mono'; }
+textarea { background:#050b0a; border-color:#365249; color:#bdf5df; font-family:'IBM Plex Mono'; }
+form button { background:#5dffc4; color:#07100f; font-family:'Space Grotesk'; }
+form button b { color:#07100f; }
+.event-status { color:#88a198; font-family:'IBM Plex Mono'; }
+.event-status[data-tone="accepted"] { color:#5dffc4; }
+.event-status[data-tone="watch"] { color:#ffbf5b; }
+.market-feed { border-color:#365249; background:#0d1917; }
+.market-panel { border-color:#365249; background:#5dffc4; color:#07100f; }
+.market-panel>span,.market-panel small,.market-panel p { color:#17382f !important; }
+.market-panel>b { font:600 40px 'Space Grotesk'; letter-spacing:-.06em; }
+.market-panel .ghost { border-color:#17382f; color:#07100f; }
+.market-panel .ghost:hover { background:#07100f; color:#5dffc4; }
+.source-note,.source-note a { color:#5dffc4 !important; }
+.section-head { border-color:#436158; }
+.ghost { border-color:#365249; color:#5dffc4; font-family:'IBM Plex Mono'; }
+.alerts article { border-color:#29403a; font-family:'IBM Plex Mono'; }
+.dot { background:#ffbf5b; box-shadow:0 0 0 4px rgba(255,191,91,.1); }
+footer { border-color:#29403a; }
+footer a { color:#5dffc4; }
+a:focus-visible, button:focus-visible, textarea:focus-visible { outline:3px solid #5dffc4; outline-offset:3px; }
+@media (max-width:700px) { .hero { grid-template-columns:1fr; } .hero>p { padding-left:16px; } }
